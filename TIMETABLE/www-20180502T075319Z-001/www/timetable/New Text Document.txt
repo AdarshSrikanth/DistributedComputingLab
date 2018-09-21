@@ -1,0 +1,19 @@
+SELECT image FROM images WHERE name = {$_GET['name']} and job = {$_GET['job']} and year = {$_GET['year']} and {$_GET['sem']}
+
+
+
+<html>
+<body>
+<form action="view.php" method="get">
+
+<pre>
+	<input type="text" name="id">
+    Name: <input type="text" name="name">
+    Role: <input type="radio" name="job" value="1">Student  <input type="radio" name="job" value="0">Staff<br>
+    Year: <input type="text" name="year">
+    Sem: <input type="radio" name="sem" value="0">Even      <input type="radio" name="sem" value="1">Odd<br>
+    <input type="submit" name="submit" value="UPLOAD"/>
+</pre>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+	background-color: #4C6A92;
+}
+button {
+	float: left;
+	clear: left;
+	margin-left: 10%;
+	margin-top: 7%;
+	font-size: 1.3em;
+	border-radius: 10px;
+	border: 2px solid red;
+
+}
+
+button:hover {
+	background-color: yellow;
+}
+
+button:active {
+	background-color: yellow;
+	box-shadow: 0 5px #666;
+	transform: translateY(4px);
+}
+
+.fdet {
+	width: 30%;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid black;
+}
+
+pre {
+	font-size: 1.7em;
+}
+
+.buttons {
+	font-size: 0.8em;
+	border-radius: 10px;
+}
+
+select {
+	font-size: 0.7em;
+	border-radius: 8px;
+}

@@ -1,0 +1,73 @@
+<html>
+<style>
+
+td{
+text-align:center;
+font-size:20px;
+font-style:Time new Roman;
+}
+
+input[type=submit] {
+    width: 250%;
+    padding: 5px 5px;
+    margin:center;
+    box-sizing: border-box;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+h1{
+text-align:center;
+font-size:30px;
+font-style:Time new Roman;
+}
+
+body{
+			background-image:url(download.jpeg);
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
+
+</style>
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1>UPLOAD FILE</h1>
+
+<br/>
+<br/>
+<br/>
+
+<center>
+<form enctype="multipart/form-data" method="POST" action="uploadce.php">
+
+<table border="0">
+
+<tbody>
+
+<tr>
+
+<td>File:</td>                              
+<td><center><input accept="doc/docx" name="filename" size="100" type="file" /></center></td>
+
+</tr>
+
+<tr>
+<center>
+<td></br>
+<br/>
+<br/>
+
+                               <input name="Upload" type="submit" value="Upload" /></td>
+</center>
+</tr>
+
+</tbody></table>
+
+</form>
+</center>
+</body>
+
+</html>
