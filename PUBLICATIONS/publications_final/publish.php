@@ -60,20 +60,14 @@ input[type="radio"]:hover
 {
    box-shadow: 2px 2px grey;
 }
-
-
-
 	</style>
-
-
-
 </head>
 <body>
-
+<a href="index.php"> <button type="button" name="submit" class="button" style="float:left;"><span>Go Back</span></button></a>
 <div class="container">
-  <form method="post" action="store.php">
+  <form method="post" action="store.php" name="mainForm" id="mainForm" enctype="multipart/form-data">
     <div class="row">
-      <h4>Journal Details</h4>
+      <h3>Journal Details</h3>
         <div class>
         <h4>Nature of Publication</h4>
         <div class="input-group">
@@ -89,7 +83,8 @@ input[type="radio"]:hover
           <input type="radio" name="conf" value="International" id="no2"/>
           <label for="no2">International</label>
         </div>
-         <h4>Author Precedence Type</h4>
+				<!--
+				<h4>Author Precedence Type</h4>
         <div class="input-group">
           <input type="radio" name="author" value="1" id="1"/>
           <label for="1">1st</label>
@@ -100,58 +95,72 @@ input[type="radio"]:hover
           <input type="radio" name="author" value="4" id="4"/>
           <label for="4">Other</label>
         </div>
+				-->
         <h4>Author details</h4>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Name of the Author" name="name"/>
+        <!--<input type="text" placeholder="Name of the Author" name="name" id="author1" required pattern="[a-zA-Z\s]+"/>-->
+				<select name="author[]" multiple size="5">
+        <?php
+						$conn = new mysqli("localhost","Adarsh","",'Publication');
+            $staffquery = "SELECT * from staff";
+            $staffs = $conn->query($staffquery);
+            foreach ($staffs as $staff){
+                echo '<option value='.$staff['eid'].'>'.$staff['name'].'</option>';
+            }
+        ?>
+			</select>
+				<!--
+				<button type="button" onclick="textBoxCreate()">+</button>
+				<button type="button" onclick="textBoxDelete()">-</button>
         <div class="input-icon"><i class="fa fa-user"></i></div>
+				-->
       </div>
-
       <h4>Title Of the Paper</h4>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Title of the paper" name="title" />
+        <input type="text" placeholder="Title of the paper" name="title" required pattern="[a-zA-Z\s]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
 
  	<h4>Name of the Journal</h4>
       <div class="input-group input-group-icon">
-        <input type="text" placeholder="Name of the Journal" name="journal" />
+        <input type="text" placeholder="Name of the Journal" name="journal" required pattern="[a-zA-Z\s]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
 
-   <h4>Volume Number</h4>
+   		<h4>Volume Number</h4>
       <div class="input-group input-group-icon">
-        <input type="number" placeholder="Volume No." min="1" name="vol" />
+        <input type="number" placeholder="Volume No." min="1" name="vol" required  pattern="[0-9]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
        <h4>Issue Number</h4>
       <div class="input-group input-group-icon">
-        <input type="number" placeholder="Issue No." min="1" name="iss" />
+        <input type="number" placeholder="Issue No." min="1" name="iss" required pattern="[0-9]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
        <h4>Page Number</h4>
       <div class="input-group input-group-icon">
-        <input type="number" placeholder="From" min="1" name="pfrom"/>
+        <input type="number" placeholder="From" min="1" name="pfrom" pattern="[0-9]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
 
       </div>
        <div class="input-group input-group-icon">
-        <input type="number" placeholder="To" min="1" name="pto" />
+        <input type="number" placeholder="To" min="1" name="pto" pattern="[0-9]+"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
 
       </div>
       <h4>ISSN or ISDN Number</h4>
       <div class="input-group input-group-icon">
-        <input type="number" placeholder="ISSN or ISDN No." min="1" name="issn"/>
+        <input type="number" placeholder="ISSN or ISDN No." min="1" name="issn" pattern="[0-9]{6,}"/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
       <div class="row">
         <h4>Year of Publication</h4>
         <div class="input-group">
                     <div class="col-third">
-            <input type="text" placeholder="MM" name="month" />
+            <input type="text" placeholder="MM" name="month" required pattern="[[1][0-2]|[0][1-9]]"/>
           </div>
           <div class="col-third">
-            <input type="text" placeholder="YYYY" name="year"/>
+            <input type="text" placeholder="YYYY" name="year" required pattern="[0-9]{4}"/>
           </div>
         </div>
      	 <h4>UGC Listed Journal</h4>
@@ -169,7 +178,7 @@ input[type="radio"]:hover
           <label for="no1">No</label>
         </div>
           <h4>Upload Paper</h4>
-          <input type="file" id="File" name="pubpaper" />
+          <input type="file" id="File" name="paper" />
       <br/>
 		</div>
         <br/><br/><br>
@@ -179,11 +188,41 @@ input[type="radio"]:hover
 	</form>
 </div>
 </div>
-<script type="text/javascript">
-  $("#clear").click(function() {
-  var x = $("#File");
-     x.val("");
-});
-</script>
+
+			<script>
+			var i = 1; // Global Variable for Name
+			function textBoxCreate(){
+				if(i>3){
+					alert("Maximum authors reached");
+					return;
+				}
+				else{
+					i++;
+					var y = document.createElement("INPUT");
+					y.setAttribute("type", "text");
+					y.setAttribute("Placeholder", "Name of Author" + i);
+					y.setAttribute("Name", "name"+i);
+					y.setAttribute("id", "author"+i);
+					y.setAttribute("pattern","[a-zA-Z]+");
+					document.getElementById("myForm").appendChild(y);
+				}
+			}
+			function textBoxDelete(){
+				if(i==1){
+					alert("Atleast one author required");
+					return;
+				}
+				if(i>0){
+					var y = document.getElementById("author"+i);
+					document.getElementById("myForm").removeChild(y);
+					i--;
+				}
+
+			}
+
+			function back(){
+				window.top.location("index.php");
+			}
+			</script>
 </body>
 </html>

@@ -4,23 +4,17 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-<title>Publication Details</title>
-     <style type="text/css">
+  <title>Publication Details</title>
+  <style type="text/css">
 
-     </style>
+  </style>
 </head>
 
 <body>
-
-<section>
-  <button class='lined thick' onclick="javascript:publish()" style="border-radius: 5%;">Add a Published Paper</button>
+  <section>
+    <button class='lined thick' onclick="javascript:publish()" style="border-radius: 15%;">Add a Published Paper</button>
+    <button class='lined thick' onclick="javascript:view()" style="border-radius: 15%;">View Published Papers</button>
   </section>
-<section>
-  <button class='lined thick' onclick="javascript:view()" style="border-radius: 5%;">View Published Papers</button>
-</section>
-
-
-
 </body>
 <script>
 function publish()
@@ -29,9 +23,9 @@ function publish()
 }
 function view()
 {
-  window.top.location='view.php';
+  window.top.location='searchPaper.php';
 }
 
-  </script>
+</script>
 
 </html>

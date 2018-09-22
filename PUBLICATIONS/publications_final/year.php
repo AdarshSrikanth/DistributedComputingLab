@@ -8,7 +8,7 @@
 	 <link rel="stylesheet" href="css/style4.css">
 	<title>Publication Details</title>
 	<style type="text/css">
-		
+
 .button {
   width:150px;
   border-radius: 4px;
@@ -18,7 +18,7 @@
   text-align: center;
   font-size: 17px;
   padding: 10px;
- 
+
   transition: all 0.5s;
   cursor: pointer;
   margin-left:0px;
@@ -70,7 +70,7 @@ $(document).ready(function(){
       }
     });
   }
-  
+
   $('#search_text').keyup(function(){
     var search = $(this).val();
     if(search != '')
@@ -79,7 +79,7 @@ $(document).ready(function(){
     }
     else
     {
-      load_data();      
+      load_data();
     }
   });
 });
@@ -89,15 +89,16 @@ $(document).ready(function(){
 <div class="container">
   <form method="post" action="display1.php">
     <div class="row">
-     
+
         <h4>Year of Paper Published</h4>
       <div class="input-group input-group-icon">
         <input type="text" list="search_text" placeholder="From(Double Click for Suggestions)" name="from" required/><br/><br/>
            <datalist name="search_text" id="search_text"/></datalist>
-         <input type="number" placeholder="To" value="null" name="to"/>
+         <input type="number" list="search_text" placeholder="To" value="null" name="to"/>
+          <datalist name="search_text" id="search_text"/></datalist>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
-      
+
      <button type="submit" name="submit" class="button" style="float:right;margin-right:0px;background-color:green"><span>Submit</span></button>
  <a href="view.php"> <button type="button" name="submit" class="button" style="float:left;"><span>Go Back</span></button></a>
 
