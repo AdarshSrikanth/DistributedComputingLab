@@ -107,6 +107,8 @@
   </style>
 </head>
 <body>
+  <center><h1>Publication Management</h1></center>
+  <hr>
   <a href="searchPaper.php"> <button type="button" name="submit" class="button" style="float:left;width:130px;height:40px"><span>Go Back</span></button></a>
   <center>
     <div class="containerView">

@@ -10,7 +10,7 @@ body {
   font-color: #d55555;
   background-color: #f6f6f6;
 }
-h1 {
+h1{
   color: #d55555;
 }
 h4 {
@@ -256,13 +256,13 @@ select option {
 }
 
 button {
-  width: 10%;
-  height: 20%;
+  width: 130px;
+  height: 30px;
   background: transparent;
   -webkit-transition: all .5s ease;
   transition: all .5s ease;
   color: #000000;
-  font-size: 2rem;
+  font-size: 15px;
   letter-spacing: 1px;
   outline: none;
   -webkit-box-shadow: 2px 4px 3px -2px rgba(0, 0, 0, 0.4);

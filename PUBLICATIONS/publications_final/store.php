@@ -1,6 +1,5 @@
 
 <?php
-//echo"hjtdf";
 $conn= mysqli_connect("localhost","Adarsh","","Publication");
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
@@ -17,14 +16,7 @@ $issn=$_POST["issn"];
 $month=$_POST["month"];
 $ugc=$_POST["ugc"];
 $sij=$_POST["sij"];
-/*
-$sql="INSERT INTO journal_details (nature,conference,precedence, name, title, journal, volume, issue, pfrom, pto, issn, month, year, ugc, sij) VALUES ('$nature','$conf','$precedence','$name','$title','$journal','$vol','$iss','$pfrom','$pto','$issn','$month','$year','$ugc','$sij')";
-//mysqli_query($db, $sql);
-if ($db->query($sql) === TRUE) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $db->error;
-}*/
+
 $authorArray = $_POST['author'];
 $savequery = 'INSERT into paper (title,journal,year) values ("'.$_POST['title'].'","'.$_POST['journal'].'","'.$_POST['year'].'")';
 if($conn->query($savequery)){
@@ -44,13 +36,26 @@ foreach($authorArray as $author){
     echo "Saved Author";
   }
 }
-//echo"<script type='text/javascript'>alert('Paper Details inserted successfully')</script>";
-//echo"<script type='text/javascript'>window.top.location='index.php';</script>";
+
+$pdf = $_FILES['paper']['tmp_name'];
+$file_type = $_FILES['paper']['type'];
+$file_name = $_FILES['paper']['name'];
+if($file_name!=""){
+  $data=mysqli_real_escape_string($conn, file_get_contents($pdf));
+  $q = "INSERT INTO pdfStore (pid,pdf) VALUES ('$pid','$data')";
+  $result = mysqli_query($conn, $q);
+  if($result){
+    echo '<h3>Successfully added</h3>';
+  }
+  else{
+    echo 'Error';
+  }
+}
+
 $target_dir = "Papers/";
 $uploadOk = 1;
 $target_file = $target_dir.basename($_FILES["paper"]["name"]);
 $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-//$info = pathinfo($_FILES['paper']['name']);
 $ext = $info['extension']; // get the extension of the file
 if($FileType != "pdf") {
   echo "Sorry, PDF files are allowed.";

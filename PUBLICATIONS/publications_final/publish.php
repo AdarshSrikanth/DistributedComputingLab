@@ -63,9 +63,11 @@ input[type="radio"]:hover
 	</style>
 </head>
 <body>
+	<center><h1>Publication Management</h1></center>
+	<hr>
 <a href="index.php"> <button type="button" name="submit" class="button" style="float:left;"><span>Go Back</span></button></a>
 <div class="container">
-  <form method="post" action="store.php" name="mainForm" id="mainForm" enctype="multipart/form-data">
+  <form method="post" action="store.php" name="mainForm" id="mainForm" enctype="multipart/form-data" onSubmit="return confirm('Are you sure you wish to update?');">
     <div class="row">
       <h3>Journal Details</h3>
         <div class>
@@ -157,7 +159,7 @@ input[type="radio"]:hover
         <h4>Year of Publication</h4>
         <div class="input-group">
                     <div class="col-third">
-            <input type="text" placeholder="MM" name="month" required pattern="[[1][0-2]|[0][1-9]]"/>
+            <input type="text" placeholder="MM" name="month" required pattern="[1[0-2]|0[1-9]]"/>
           </div>
           <div class="col-third">
             <input type="text" placeholder="YYYY" name="year" required pattern="[0-9]{4}"/>

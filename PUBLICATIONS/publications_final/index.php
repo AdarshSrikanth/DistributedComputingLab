@@ -11,6 +11,8 @@
 </head>
 
 <body>
+  <center><h1>Publication Management</h1></center>
+	<hr>
   <section>
     <button class='lined thick' onclick="javascript:publish()" style="border-radius: 15%;">Add a Published Paper</button>
     <button class='lined thick' onclick="javascript:view()" style="border-radius: 15%;">View Published Papers</button>

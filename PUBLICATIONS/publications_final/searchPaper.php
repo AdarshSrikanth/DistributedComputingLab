@@ -78,6 +78,8 @@
         </script>
     </head>
 <body>
+  <center><h1>Publication Management</h1></center>
+	<hr>
   <a href="index.php"> <button type="button" name="submit" class="button" style="float:left;"><span>Go Back</span></button></a>
   <div class="container">
     <center>

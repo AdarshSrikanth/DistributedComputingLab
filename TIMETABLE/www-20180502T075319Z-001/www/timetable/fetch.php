@@ -1,17 +1,14 @@
 <?php
-$connect = mysqli_connect("localhost", "root", "", "staff_details");
+$connect = mysqli_connect("localhost", "Adarsh", "", "Timetable");
 $output = '';
 if(isset($_POST["query"]))
 {
 	$search = mysqli_real_escape_string($connect, $_POST["query"]);
-	$query = "
-	SELECT * FROM timetable_staff 
-	WHERE name LIKE '%".$search."%' ";
+	$query = "SELECT * FROM timetable_staff	WHERE name LIKE '%".$search."%' ";
 }
 else
 {
-	$query = "
-	SELECT DISTINCT(name) FROM timetable_staff WHERE name IS NOT NULL ORDER BY name";
+	$query = "SELECT DISTINCT(name) FROM timetable_staff WHERE name IS NOT NULL ORDER BY name";
 }
 $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)
