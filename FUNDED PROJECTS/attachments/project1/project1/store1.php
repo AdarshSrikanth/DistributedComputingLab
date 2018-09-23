@@ -33,7 +33,7 @@ if(isset($_POST["submit"])){
 		if($file_name!=""){
 			echo "Inside 2nd if";
 		  $data=mysqli_real_escape_string($db, file_get_contents($pdf));
-			$sql="INSERT INTO consult(name,title,company,amount,fromd,tood,status,file) VALUES('$ff','$ll','$ee','$pp','$bb','$rr','$sr','$data')";
+			$sql="INSERT INTO consult(name,title,company,amount,fromd,tood,status,type,File) VALUES('$ff','$ll','$ee','$pp','$bb','$rr','$sr','Individual','$data')";
 			$result=mysqli_query($db,$sql);
 			if($result){
 				echo '<h3>Successfully added</h3>';
@@ -43,7 +43,7 @@ if(isset($_POST["submit"])){
 		}
 		else{
 			echo "Inside else";
-			$sql="INSERT INTO consult(name,title,company,amount,fromd,tood,status) VALUES('$ff','$ll','$ee','$pp','$bb','$rr','$sr')";
+			$sql="INSERT INTO consult(name,title,company,amount,fromd,tood,type,status) VALUES('$ff','$ll','$ee','$pp','$bb','$rr','$sr','Individual')";
 			$result=mysqli_query($db,$sql);
 			if($result){
 				echo '<h3>Successfully added</h3>';
@@ -57,15 +57,14 @@ if(isset($_POST["submit"])){
 	}
 }
 
-$target_dir = "Papers/";
-$uploadOk = 1;
+$target_dir = "Papers/consultancy/Individual/";
 $target_file = $target_dir.basename($_FILES["pdf"]["name"]);
 $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 $ext = $info['extension']; // get the extension of the file
-  if (move_uploaded_file($_FILES["paper"]["tmp_name"], $target_file)) {
+  if (move_uploaded_file($_FILES["pdf"]["tmp_name"], $target_file)) {
     echo "The file ".basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
-//header( "Location: index.php");
+header( "Location: index.php");
 ?>

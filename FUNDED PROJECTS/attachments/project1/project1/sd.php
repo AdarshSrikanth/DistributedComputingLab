@@ -1,17 +1,17 @@
-<?php
 
-?>
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/style1.css">
-  <title></title>
+  <title>Funded Projects</title>
+	<script src="jquery/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="all" href="css/style1.css">
   <style type="text/css">
 
   .button {
     width:150px;
     border-radius: 4px;
-    background-color:red;
+    background-color:#d55555;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -61,54 +61,51 @@
   }
 
   </style>
-
-  <script>
-  $(document).ready(function(){
-    load_data();
-    function load_data(query)
-    {
-      $.ajax({
-        url:"fetch.php",
-        method:"post",
-        data:{query:query},
-        success:function(data)
-        {
-          $('#search_text1').html(data);
-        }
-      });
-    }
-
-    $('#search_text1').keyup(function(){
-      var search = $(this).val();
-      if(search != '')
+</head>
+<script>
+$(document).ready(function(){
+  load_data();
+  function load_data(query)
+  {
+    $.ajax({
+      url:"fetch.php",
+      method:"post",
+      data:{query:query},
+      success:function(data)
       {
-        load_data(search);
-      }
-      else
-      {
-        load_data();
+        $('#search_text').html(data);
       }
     });
-  });
-  </script>
+  }
 
-</head>
+  $('#search_text').keyup(function(){
+    var search = $(this).val();
+    if(search != '')
+    {
+      load_data(search);
+    }
+    else
+    {
+      load_data();
+    }
+  });
+});
+</script>
+
+
 <body>
   <center><h1>Funded Projects</h1></center>
   <hr>
   <a href="publish.php"> <button type="button" name="submit" style="float:left;"><span>Go Back</span></button></a>
   <div class="container">
     <form method="post" action="store1.php" enctype="multipart/form-data">
-      <div class="row">
         <center><b><h3>Consultancy Projects</h3></b></center>
-        <div class="col-half">
 
-          <h3>Faculty Name</h3>
-          <div class="input-group input-group-icon">
-            <input type="text" list="search_text1" placeholder="Faculty Name" name="name" required/>
-            <datalist name="search_text1" id="search_text1"/></datalist>
-            <div class="input-icon"><i class="fa fa-user"></i></div>
-          </div>
+        <h3>Faculty Name</h3>
+        <div class="input-group input-group-icon">
+        <input type="text" list="search_text" name="name" required placeholder="Name"><br>
+        <datalist name="search_text" id="search_text"/></datalist>
+      </div>
           <h3>Title of the Project</h3>
               <div class="input-group input-group-icon">
                 <input type="text" placeholder="Title of the project" name="title" required />
@@ -142,10 +139,9 @@
               </div>
                 <h3>Upload File:</h3>
                 <input type="file" id="File" name="pdf" accept=".pdf" />
-                  <input type="submit" name="submit" class="button" value="Submit">
-                  <input type="reset" name="reset" class="button" value="Reset">
+                  <center><input type="submit" name="submit" class="button" value="Submit">
+                  <input type="reset" name="reset" class="button" value="Reset"></center>
             </form>
           </div>
-        </div>
         </body>
         </html>

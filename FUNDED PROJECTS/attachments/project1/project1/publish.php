@@ -74,19 +74,19 @@
 					<div  class="input-group">
 						<div onClick="window.location = 'sd.php';">
 							<input type="radio" name="nature" value="Consultancy" id="gender-male" style="pointer-events:none;"/>
-							<label for="gender-male">Consultancy</label>
+							<label for="gender-male">Consultancy Project Individual</label>
 						</div>
 						<div onClick="window.location = 'asd.php';">
 							<input type="radio" name="nature" value="Funded" id="gender-male" style="pointer-events:none;"/>
-							<label for="gender-female">Funded</label>
+							<label for="gender-female">Funded Project Individual</label>
 						</div>
 						<div onClick="window.location = 'publish2.php';">
 							<input type="radio" name="nature" value="Funded" id="gender-male" style="pointer-events:none;"/>
-							<label for="gender-female">consultancy(1)</label>
+							<label for="gender-female">consultancy Project - Group</label>
 						</div>
 						<div onClick="window.location = 'publish1.php';">
 							<input type="radio" name="nature" value="Funded" id="gender-male" style="pointer-events:none;"/>
-							<label for="gender-female">Funded(1)</label>
+							<label for="gender-female">Funded Project - Group</label>
 						</div>
 					</div>
 				</div>

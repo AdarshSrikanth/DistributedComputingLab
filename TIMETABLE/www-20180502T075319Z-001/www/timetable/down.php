@@ -41,7 +41,7 @@ $(document).ready(function(){
     <div class="container">
 		<form action="view.php" method="post">
     	<h3>Name:</h3>
-			<input type="text" list="search_text" name="name" required><br>
+			<input type="text" list="search_text" name="name" required placeholder="Name"><br>
       <datalist name="search_text" id="search_text"/></datalist>
     	<h3>Year:<h3>
 			<select name = "year" required>
