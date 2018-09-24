@@ -5,8 +5,8 @@
 
 	$conn=mysqli_connect($dbhost,$dbuser,$dbpass,'staff_details');
 	$var=$_GET['nop'];
-	echo "title seleected is ";
-	echo $var;
+	/*echo "title seleected is ";
+	echo $var;*/
 	if($file=fopen("file2.txt","w"))
 		echo "";
 	else
@@ -54,30 +54,30 @@
 		//echo "</h3>";
 		echo "</br>";
 		echo "</b>";
-		
-		$s=$r['eid'].";".$r['ename']."\r\n";//\n'; 
+
+		$s=$r['eid'].";".$r['ename']."\r\n";//\n';
 		fputs($file,$s) or die("Data not written ");
-		
+
 		/*$s=$r['eid'].";".$r['ename']."\r\n";
 		echo "<br/>";//.";".$fromdate.";".$todate.";".$organised;
 		//fputs*/
 		//fputs($file,$s) or die("Data not written ");
 		//fputs("\n");
-		
-		
+
+
 	}
-	
+
 	// or die("file1 not found");
 /*while($r=mysqli_fetch_array($retval))
 	{
 		echo $r['eid'];
 		echo $r['ename'];
-		
+
 		$s=$r['eid'].";".$r['ename'];//.";".$fromdate.";".$todate.";".$organised;
 		fputs($file,$s) or die("Data not written ");
-		
+
 	}*/
-	
+
 	/*$query1="SELECT eid from programs_attended where title='$var'";
    $result1=$conn->query($query1);
    if(!$result1)
@@ -114,14 +114,14 @@
    top:10;
    left-300;
    right:30;
-   
+
    font-size:150%;
   }
   .add1{
    position:absolute;
    top:10;
    left-300;
-   
+
    right:130;
    font-size:150%;
   }
@@ -130,10 +130,10 @@
 <body background="images/img8.jpg">
 <a href="report2.php"><h2>click to generate report</h2></a>
 <div class="add">
-<a href="Search2.html">BACK</a>
-</div>
-<div class="add1">
-<a href="index.html">HOME</a>
+	<center><a href="Search2.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></a></button></center>
+	</div>
+	<div class="add1">
+	<center><a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></a></button></center>
 </div>
 </body>
 </html>
