@@ -5,7 +5,7 @@
 	 <link rel="stylesheet" href="css/style1.css">
 	<title></title>
 	<style type="text/css">
-		
+
 .button {
   width:150px;
   border-radius: 4px;
@@ -15,7 +15,7 @@
   text-align: center;
   font-size: 17px;
   padding: 10px;
- 
+
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -59,8 +59,8 @@
     <div class="row">
     <center> <b>  <h4>Funded Projects</h4> </b> </center>
         <div class="col-half">
-     
-     
+
+
      <h4>Name of Agency</h4>
       <div class="input-group input-group-icon">
         <input type="text" placeholder="Name of the Agency" name="name"/>
@@ -71,7 +71,7 @@
         <input type="text" placeholder="Faculty Name" name="fname"/>
         <div class="input-icon"><i class="fa fa-user"></i></div>
       </div>
-      
+
       <h4>Title Of the Project</h4>
       <div class="input-group input-group-icon">
         <input type="text" placeholder="Title of the project" name="title" />
@@ -83,22 +83,22 @@
         <input type="text" placeholder="Total Amount" name="amt" />
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
       </div>
-    
- 	
 
-  
+
+
+
        <h4>Period of support</h4>
       <div class="input-group input-group-icon">
-        <input type="date" placeholder="From" min="1" name="pfrom"/>
+        <input type="date" placeholder="From" min="1" name="pfrom" required/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
 
       </div>
        <div class="input-group input-group-icon">
-        <input type="date" placeholder="To" min="1" name="pto" />
+        <input type="date" placeholder="To" min="1" name="pto" required/>
         <div class="input-icon"><i class="fa fa-envelope"></i></div>
-        
+
       </div>
-     
+
      	 <h4>Status</h4>
         <div class="input-group">
  <input type="radio" name="ugc" value="1" id="applied"/>

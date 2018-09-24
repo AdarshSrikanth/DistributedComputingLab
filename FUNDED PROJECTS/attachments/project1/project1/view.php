@@ -4,64 +4,41 @@
 <head>
   <link rel="stylesheet" href="css/style.css">
   <meta charset="UTF-8">
-  <title>jQuery +3D css button</title>
-  
-  
-  
-     <style type="text/css">
-     .add{
-  position:absolute;
-  top:0;
-  left-300;
-  right:0;
-  font-size:250%;
+  <title>Funded projects</title>
+  <style type="text/css">
 
-}
+  </style>
 
-
-
-     </style>
-
-  
 </head>
 
 <body>
-	<div>
-		<a href="index.php">BACK</a>
-</div>
-
-  <h1> <center> <b> Based on: </b> </center> </h1>
-
-
+  <center><h1>Funded Projects</h1></center>
+	<hr>
+	<a href="index.php"> <button class="button" type="button" name="submit" style="float:left;"><span>Go Back</span></button></a>
+  <h2> <center> <b> View based on: </b> </center> </h2>
   <section>
-  <button class='lined thick' onclick="javascript:pdf3()">Date</button>
+    <div>
+    <button class='lined thin' onclick="javascript:pdf3()">Date</button>
+  </div>
+  <div>
+    <button class='lined thin' onclick="javascript:pdf4()">Status</button>
+  </div>
+  <div>
+    <button class='lined thin' onclick="javascript:staff()">Title of project</button>
+  </div>
+  <div>
+    <button class='lined thin' onclick="javascript:year5()">Faculty Name</button>
+    </div>
+    <div>
+    <button class='lined thin' onclick="javascript:pdf2()">Company Name</button>
+  </div>
+  <div>
+    <button class='lined thin' onclick="javascript:pdf()">List of all  funded projects till date</button>
+  </div>
+  <div>
+    <button class='lined thin' onclick="javascript:pdf1()">List of all  consultancy projects till date</button>
+  </div>
   </section>
-
-  <section>
-  <button class='lined thick' onclick="javascript:pdf4()">Status</button>
-  </section>
-<section>
-  <button class='lined thick' onclick="javascript:staff()">Title of project</button>
-  </section>
-
-<section>
-  <button class='lined thick' onclick="javascript:year5()">Faculty Name</button>
-  </section>
-
-<section>
-  <button class='lined thick' onclick="javascript:pdf2()">Company Name</button>
-  </section>
-
-
-  <section>
-  <button class='lined thick' onclick="javascript:pdf()">List of all  funded projects till date</button>
-  </section>
-
- <section>
-  <button class='lined thick' onclick="javascript:pdf1()">List of all  consultancy projects till date</button>
-  </section>
-   
-                   
 </body>
 <script>
 function staff()
@@ -74,30 +51,30 @@ function year5()
 }
 function pdf()
 {
- 
- window.top.location='report1.php';
+
+  window.top.location='report1.php';
 }
 function pdf1()
 {
- 
- window.top.location='report4.php';
+
+  window.top.location='report4.php';
 }
 function pdf2()
 {
- 
- window.top.location='dips2.php';
+
+  window.top.location='dips2.php';
 }
 function pdf3()
 {
- 
- window.top.location='dips3.php';
+
+  window.top.location='dips3.php';
 }
 function pdf4()
 {
- 
- window.top.location='dips4.php';
+
+  window.top.location='dips4.php';
 }
-  </script>
+</script>
 
 
 </html>
