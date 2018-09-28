@@ -52,8 +52,8 @@
 		echo "</br>";
       $s=$r['natureofprogram'].";".$r['title'].";".$r['fromdate'].";".$r['todate'].";".$r['organised']."\r\n";
  fputs($file,$s) or die("Data not written ");
-		
-		
+
+
 	}
 	echo "<br/>";
 	//echo "hi";
@@ -64,18 +64,18 @@
 	 <tr><td>".$r['eid']."</td></tr>
 	 <tr><td>".$r['ename']."</td></tr>
 	 <tr><td>".$r['natureofprogram']."</td></tr>
-	 <tr><td>".$r['title']."</td></tr>	 
-	 <tr><td>".$r['duration']."</td></tr>	 
-	 <tr><td>".$r['fromdate']."</td></tr>	 
-	 <tr><td>".$r['todate']."</td></tr>	 
+	 <tr><td>".$r['title']."</td></tr>
+	 <tr><td>".$r['duration']."</td></tr>
+	 <tr><td>".$r['fromdate']."</td></tr>
+	 <tr><td>".$r['todate']."</td></tr>
 	 <tr><td>".$r['organised']."</td></tr>
-     </table>";	 
-	 
-	 
-	 
+     </table>";
+
+
+
       $s=$r['natureofprogram'].";".$r['title'].";".$r['fromdate'].";".$r['todate'].";".$r['organised']."\r\n";
  fputs($file,$s) or die("Data not written ");*
-		
+
 	}*/
 	//echo "</center>";
 	$query1="SELECT natureofprogram from programs_attended where eid='$var'";
@@ -86,7 +86,7 @@
 	}
 	$arrayresult1=mysqli_fetch_array($result1);
 	$natureofprogram=$arrayresult1['natureofprogram'];
-	
+
 	$query1="SELECT title from programs_attended where eid='$var'";
    $result1=$conn->query($query1);
    if(!$result1)
@@ -95,7 +95,7 @@
 	}
 	$arrayresult1=mysqli_fetch_array($result1);
 	$title=$arrayresult1['title'];
-	
+
 		$query1="SELECT fromdate from programs_attended where eid='$var'";
    $result1=$conn->query($query1);
    if(!$result1)
@@ -104,10 +104,10 @@
 	}
 	$arrayresult1=mysqli_fetch_array($result1);
 	$fromdate=$arrayresult1['fromdate'];
-	
 
-	
-	
+
+
+
 			$query1="SELECT todate from programs_attended where eid='$var'";
    $result1=$conn->query($query1);
    if(!$result1)
@@ -116,7 +116,7 @@
 	}
 	$arrayresult1=mysqli_fetch_array($result1);
 	$todate=$arrayresult1['todate'];
-   
+
    $query1="SELECT organised from programs_attended where eid='$var'";
    $result1=$conn->query($query1);
    if(!$result1)
@@ -126,18 +126,18 @@
 	$arrayresult1=mysqli_fetch_array($result1);
 	$organised=$arrayresult1['organised'];
   // $model="3";
-   
-  
+
+
    /*$file=fopen("file1.txt","w") or die("file1 not found");
      // $s=$currentDateTime.";".$ant.";".$cc1;
       $s=$natureofprogram.";".$title.";".$fromdate.";".$todate.";".$organised;
   // $s=$arrayresult1['equipmentname'].";".$arrayresult1['make'].";".$arrayresult1['model'].";".$arrayresult1['id'].";".";";
    fputs($file,$s) or die("Data not written ");*/
    fclose($file);
-   
-   
-   
-	
+
+
+
+
 	mysqli_close($conn);
 
 ?>
@@ -150,28 +150,28 @@
    top:10;
    left-300;
    right:30;
-   
+
    font-size:150%;
   }
   .add1{
    position:absolute;
    top:10;
    left-300;
-   
+
    right:130;
    font-size:150%;
   }
 
 </style>
 </head>
-<body background="images/img8.jpg">	
+<body background="images/img8.jpg">
 <!--<h2>Staff Details</h2>-->
 <a href="report.php"><h2>click to generate report</h2></a>
 <div class="add">
-<a href="Search.html">BACK</a>
+<center><a href="Search.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></a></button></center>
 </div>
 <div class="add1">
-<a href="index.html">HOME</a>
+<center><a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></a></button></center>
 </div>
 </body>
 </html>

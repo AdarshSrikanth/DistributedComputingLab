@@ -5,13 +5,13 @@ if(isset($_POST["query"]))
 {
 	$search = mysqli_real_escape_string($connect, $_POST["query"]);
 	$query = "
-	SELECT * FROM journal_details
+	SELECT * FROM paper
 	WHERE year LIKE '%".$search."%' ";
 }
 else
 {
 	$query = "
-	SELECT DISTINCT(year) FROM journal_details WHERE year IS NOT NULL ORDER BY year";
+	SELECT DISTINCT(year) FROM paper WHERE year IS NOT NULL ORDER BY year";
 }
 $result = mysqli_query($connect, $query);
 if(mysqli_num_rows($result) > 0)

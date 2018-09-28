@@ -1,30 +1,31 @@
-<?php
 
-?>
 <!DOCTYPE html>
 <html>
 <head>
 	 <link rel="stylesheet" href="css/style1.css">
-	<title></title>
+	<title>FundedProject</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 	<style type="text/css">
-		
+
 .button {
   width:150px;
   border-radius: 4px;
-  background-color:red;
+  background-color:#ee5555;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 17px;
   padding: 10px;
- 
+
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
 }
 .button:hover
 {
- box-shadow: 3px 3px tomato;
+ box-shadow: 3px 3px black;
+ width: 160px;
 }
 
 .button span {
@@ -61,25 +62,47 @@
 }
 </style>
 </head>
-<body>
-  <div>
-<a href="view.php">BACK</a>
-</div>
-<div class="container">
-  <form method="get" action="report5.php">
-    <div class="row">
 
-        <div class="col-half">
-     
-     
-     <h4>Title of project</h4>
-      <div class="input-group input-group-icon">
-        <input type="text" placeholder="title of project" name="varname" value="var_value" required pattern="[0-9]{0,}[A-z]{0,}[0-9]{0,}[a-z]{1,}[0-9]{0,}"/>
-        <div class="input-icon"><i class="fa fa-user"></i></div>
-        <center>  <button type="submit" name="submit" class="button"><span>Submit</span></button></center>
-      </div>
-    </div>
-  </div>
+<script>
+$(document).ready(function(){
+  load_data();
+  function load_data(query)
+  {
+    $.ajax({
+      url:"fetch1.php",
+      method:"post",
+      data:{query:query},
+      success:function(data)
+      {
+        $('#search_text').html(data);
+      }
+    });
+  }
+
+  $('#search_text').keyup(function(){
+    var search = $(this).val();
+    if(search != '')
+    {
+      load_data(search);
+    }
+    else
+    {
+      load_data();
+    }
+  });
+});
+</script>
+
+<body>
+	<center><h1>Funded Projects</h1></center>
+	<hr>
+	<a href="view.php"> <button class="button" type="button" name="submit" style="float:left;"><span>Go Back</span></button></a>
+<div class="container">
+  <form method="post" action="report5.php">
+         <h3>Title of project</h3>
+				<input type="text" list="search_text" name="varname" required placeholder="Name"><br>
+				<datalist name="search_text" id="search_text"/></datalist>
+			<center>  <button type="submit" name="submit" class="button"><span>Submit</span></button></center>
 </form>
 </div>
 </body>

@@ -1,50 +1,34 @@
 
 <?php
 if(isset($_POST["submit"])){
-   // $check = getimagesize($_FILES["image"]["tmp_name"]);
-   // if($check !== false){
-
-        $pdf = $_FILES['pdf']['tmp_name'];
-        $imgContent = addslashes(file_get_contents($pdf));
         $sem = $_POST["sem"];
         $year = $_POST["year"];
         $name = $_POST["name"];
 
-        /*
-         * Insert image data into database
-         */
-        
-        //DB details
-        $dbHost     = 'localhost';
-        $dbUsername = 'root';
-        $dbPassword = '';
-        $dbName     = 'staff_details';
-        
         //Create connection and select DB
-        $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-        
+        $db = new mysqli("localhost", "Adarsh", "", "Timetable");
+
         // Check connection
         if($db->connect_error){
             die("Connection failed: " . $db->connect_error);
         }
-        
+        echo 'uploading file';
         $dataTime = date("Y-m-d H:i:s");
-        
         //Insert image content into database
-        $insert = $db->query("INSERT into timetable_staff (pdf, created,sem,year,name) VALUES ('$imgContent', '$dataTime', '$sem', '$year', '$name')");
-        if($insert){
-            echo "<script type='text/javascript'> alert('Successfully uploaded'); </script>";
-            header("Location:index.html");
-
-        }else{
-            echo "<script type='text/javascript'> alert('Failed to update'); </script>";
-            header("Location:form.html");
+        $pdf = $_FILES['pdf']['tmp_name'];
+        $file_type = $_FILES['pdf']['type'];
+        $file_name = $_FILES['pdf']['name'];
+        if($file_name!=""){
+          $data=mysqli_real_escape_string($db, file_get_contents($pdf));
+          $q = "INSERT INTO timetable_staff (pdf, created,sem,year,name) VALUES ('$data', '$dataTime', '$sem', '$year', '$name')";
+          $result = mysqli_query($db, $q);
+          if($result){
+            echo '<h3>Successfully added</h3>';
+            header("Location: index.html");
+          }
+          else{
+            echo 'Error';
+          }
         }
-        
-
-
-  //  else{
-  //      echo "Please select an image file to upload.";
-  //  }
 }
 ?>
