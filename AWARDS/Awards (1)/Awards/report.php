@@ -1,7 +1,3 @@
-<html>
-<a href="index.html"> BACK TO HOME </a>
-
-
 <?php
 require('fpdf/fpdf.php');
 
@@ -58,7 +54,7 @@ $pdf->AddPage();
 
 
 	//include("config.php");
-    $con=mysqli_connect("localhost","root","","award");
+    $con=mysqli_connect("127.0.0.1","root","","award");
     /*session_start();
     $error=" ";
     $val=" ";*/
@@ -84,4 +80,7 @@ $pdf->BasicTable($header,$data);
 $pdf->Ln(3);
 $pdf->Output();
 ?>
+
+<html>
+<a href="index.html"> BACK TO HOME </a>
 </html>

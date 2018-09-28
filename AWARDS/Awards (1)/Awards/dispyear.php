@@ -7,7 +7,7 @@
 <form action="displayyear.php" method="post">
 Enter Year:
 <select name="year">
-<option  value="2016">2016</option>
+<option value="2016">2016</option>
 <option value="2001">2001</option>
 </select>
 <BR><BR><bR>

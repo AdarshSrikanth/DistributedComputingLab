@@ -1,5 +1,5 @@
 <?php
-	$dbhost='localhost';
+	$dbhost='127.0.0.1';
 	$dbuser="root";
 	$dbpass="";
 
@@ -10,7 +10,7 @@
 	$retval=mysqli_query($conn,$sql);
 	if(!$retval)
 		echo "Not Displayed";
-	while($r=mysqli_fetch_array($retval))
+	/*while($r=mysqli_fetch_array($retval))
 	{
 		echo $r['eid'];
 		echo "</br>";
@@ -27,7 +27,26 @@
  fputs($file,$s) or die("Data not written ");
 		
 		
+	}*/
+    foreach($retval as $r)
+	{
+		echo $r['eid'];
+		echo "&emsp;";
+		echo $r['ename'];
+		echo "&emsp;";
+		echo $r['nature'];
+		echo "&emsp;";
+		echo $r['title'];
+		echo "&emsp;&emsp;&emsp;";
+		echo $r['year'];
+		
+		echo "</br>";
+      $s=$r['ename'].";".$r['nature'].";".$r['title'].";".$r['year']."\r\n";
+ fputs($file,$s) or die("Data not written ");
+		
+		
 	}
+
 	
 	$query1="SELECT ename from detail where eid='$var'";
    $result1=$conn->query($query1);

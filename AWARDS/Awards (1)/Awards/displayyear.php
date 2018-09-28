@@ -1,21 +1,23 @@
 <?php
-	$dbhost='localhost';
+	$dbhost='127.0.0.1';
 	$dbuser="root";
 	$dbpass="";
 
 	$conn=mysqli_connect($dbhost,$dbuser,$dbpass,'award');
 if(isset($_POST['submit'])){
-$var=mysqli_real_escape_string($conn, $_POST['year']);
+    $var=$_POST['year'];
+    echo $var;
 	$m1=mysqli_real_escape_string($conn, $_POST['m1']);
-		
-;
 }
+
+$var=$_POST['year'];
+    echo $var;
 	$file=fopen("file1.txt","w") or die("file1 not found");
 	$sql="SELECT * FROM detail WHERE year='$var'";
 	$retval=mysqli_query($conn,$sql);
 	if(!$retval)
 		echo "Not Displayed";
-	while($r=mysqli_fetch_array($retval))
+    foreach ($retval as $r)
 	{
 		echo $r['eid'];
 		echo "</br>";
