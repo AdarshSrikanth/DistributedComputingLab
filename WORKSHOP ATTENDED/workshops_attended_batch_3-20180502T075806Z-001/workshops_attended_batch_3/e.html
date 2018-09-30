@@ -1,8 +1,9 @@
 <html>
- <head>
+
+<head>
   <script language="JavaScript" src="searchScript.js"></script>
   <style>
-  <!--CSS CODES -->
+    <!--CSS CODES -->
   a{
    text-decoration: none;
   }
@@ -78,37 +79,38 @@ input[type=submit]
   }
   </style>
   <script type="text/javascript">
-    function get(name){
-      if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
-      return decodeURIComponent(name[1]);
+    function get(name) {
+      if (name = (new RegExp('[?&]' + encodeURIComponent(name) + '=([^&]*)')).exec(location.search))
+        return decodeURIComponent(name[1]);
     }
   </script>
- </head>
- <body background="images/img1.jpg"><br><br><br><br><br>
- <center>
-<form name="myform" method="post" action="edit.php">
-<input type="text" name="eid" placeholder="Enter employee ID" required/>
-<br/><br/>
+</head>
 
-<input type="submit" value="SUBMIT" />
+<body background="images/img1.jpg"><br><br><br><br><br>
+  <center>
+    <form name="myform" method="post" action="edit.php">
+      <input type="text" name="eid" placeholder="Enter employee ID" required />
+      <br /><br />
 
-</form>
+      <input type="submit" value="SUBMIT" />
 
- </center>
-<center><span id="error-block" style="color: red; font-size: 20px; font-weight: bold">vhj</span></center>
-<script type="text/javascript">
-  var blk = document.getElementById('error-block');
-  if(get('error') == 'true'){
-    blk.textContent = 'No such ID exists';
-  }
-  else{
-    blk.innerHTML = '';
-  }
-</script>
-<div class="add1">
-<form action="index.html">
-<button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button>
-</form>
-</div>
+    </form>
+
+  </center>
+  <center><span id="error-block" style="color: red; font-size: 20px; font-weight: bold">vhj</span></center>
+  <script type="text/javascript">
+    var blk = document.getElementById('error-block');
+    if (get('error') == 'true') {
+      blk.textContent = 'No such ID exists';
+    } else {
+      blk.innerHTML = '';
+    }
+  </script>
+  <div class="add1">
+    <form action="index.html">
+      <button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%" /></button>
+    </form>
+  </div>
 </body>
+
 </html>

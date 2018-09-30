@@ -1,22 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
--- https://www.phpmyadmin.net/
+-- version 4.0.4
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 01, 2018 at 02:04 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Host: localhost
+-- Generation Time: Sep 30, 2018 at 06:40 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `staff_details`
@@ -28,8 +26,9 @@ SET time_zone = "+00:00";
 -- Table structure for table `programs_conducted`
 --
 
-CREATE TABLE `programs_conducted` (
-  `eid` varchar(10) NOT NULL REFERENCES staff(`eid`),
+CREATE TABLE IF NOT EXISTS `programs_conducted` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `eid` varchar(10) NOT NULL,
   `ename` varchar(50) NOT NULL,
   `natureofprogram` varchar(255) NOT NULL,
   `nameofworkshop` varchar(50) NOT NULL,
@@ -39,16 +38,27 @@ CREATE TABLE `programs_conducted` (
   `venue` varchar(50) NOT NULL,
   `noofparticipants` int(11) NOT NULL,
   `sponsoringagencies` varchar(50) NOT NULL,
-  `Resourceperson` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `Resourceperson` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
 -- Dumping data for table `programs_conducted`
 --
 
-INSERT INTO `programs_conducted` (`eid`, `ename`, `natureofprogram`, `nameofworkshop`, `duration`, `fromdate`, `todate`, `venue`, `noofparticipants`, `sponsoringagencies`, `Resourceperson`) VALUES
-('C6188', 'Dr.R.manimegalai', 'Technicalseminar', 'Cybersecuity', 'oneday', '2017-09-27', '2017-09-27', 'Coimbatore', 40, 'Cisco', 'Mr.Visakaraman');
-COMMIT;
+INSERT INTO `programs_conducted` (`id`, `eid`, `ename`, `natureofprogram`, `nameofworkshop`, `duration`, `fromdate`, `todate`, `venue`, `noofparticipants`, `sponsoringagencies`, `Resourceperson`) VALUES
+(1, 'C6188', 'Dr.R.manimegalai', 'Technicalseminar', 'Cybersecuity', 'oneday', '2017-09-27', '2017-09-27', 'Coimbatore', 40, 'Cisco', 'Mr.Visakaraman');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `programs_conducted`
+--
+ALTER TABLE `programs_conducted`
+  ADD CONSTRAINT `programs_conducted_ibfk_1` FOREIGN KEY (`eid`) REFERENCES `staff` (`EID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

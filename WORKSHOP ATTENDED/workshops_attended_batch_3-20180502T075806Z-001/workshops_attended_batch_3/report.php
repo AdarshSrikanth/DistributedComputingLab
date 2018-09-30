@@ -32,7 +32,7 @@ function BasicTable($header, $data)
 		else
 			$this->Cell(35,7,$col,1);*/
 	}
-        
+
     $this->Ln();
     // Data
     $i=1;
@@ -50,13 +50,13 @@ function BasicTable($header, $data)
 				$this->Cell(30,7,$col,1);
 else if($i==4)
 	$this->Cell(30,7,$col,1);
-else if($i==5)	
+else if($i==5)
 	$this->Cell(35,7,$col,1);*/
-            
-			
+
+
 			$i++;
 		}
-            
+
         $this->Ln();
     }
 }
@@ -65,7 +65,7 @@ else if($i==5)
 // Better table
 
 
-$pdf = new PDF('P','mm','A4');
+$pdf = new PDF('L','mm','A4');
 $pdf->AddPage();
 // Column headings
 
@@ -93,7 +93,7 @@ $pdf->AddPage();
     $pdf->SetFont("Arial","U","11");
     $pdf->SetTextColor(0,0,255);
     $pdf->SetLeftMargin(4);
-    $pdf->ln();  
+    $pdf->ln();
 $pdf->Cell(0,6,"PSG COLLEGE OF TECHNOLOGY",0,1,"C"); //width,height,content,border,line,align
 $pdf->Ln();
 $header = array('');

@@ -44,26 +44,28 @@ function Footer()
 //$header = array('');
 //$pdf->SetFont('Arial','',10);
 //$pdf->Cell(0,6,"Staff Workshop Details",0,1,"C");
-$display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop','nameofworkshop'=> 'Workshop','duration'=> 'Duration','fromdate'=>'FromDate','todate'=>'ToDate','venue'=>'Venue');
+$display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop','nameofworkshop'=> 'Workshop','duration'=> 'Duration','fromdate'=>'FromDate','todate'=>'ToDate','venue'=>'Venue','noofparticipants'=>'Participants','sponsoringagencies'=>'Sponsors', 'Resourceperson'=>'RP');
 
-$result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue FROM programs_conducted WHERE eid='$eid'") or die("database error:". mysqli_error($conn));
+$result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue,noofparticipants,sponsoringagencies,Resourceperson FROM programs_conducted WHERE eid='$eid'") or die("database error:". mysqli_error($conn));
 $header = mysqli_query($conn, "SHOW columns FROM programs_conducted");
-
-$pdf = new FPDF();
+$res = mysqli_fetch_array($result);
+$pdf = new FPDF('L');
 //header
 $pdf->AddPage();
 //foter page
 $pdf->AliasNbPages();
 $pdf->SetFont('Arial','B',12);
+$i=0;
 foreach($header as $heading) {
-
-$pdf->Cell(25,12,$display_heading[$heading['Field']],1);
+$i++;
+$pdf->Cell(25, 12, $display_heading[$heading['Field']],1);
 }
+$pdf->Ln();
+$pdf->Cell(25, 12, $i);
 foreach($result as $row) {
 $pdf->Ln();
 foreach($row as $column)
 $pdf->Cell(25,12,$column,1);
 }
 $pdf->Output();
-
 ?>

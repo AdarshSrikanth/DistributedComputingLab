@@ -7,7 +7,7 @@
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
-    padding: 2px 2px;
+    padding: 8px 18px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -22,6 +22,7 @@ body{
 			background-image:url(download.jpeg);
 			background-repeat:no-repeat;
 			background-size:cover;
+      margin-top: 100px;
 		}
     a{
       text-decoration: none;
@@ -47,16 +48,15 @@ input[type=text] {
     padding: 8px 8px;
     margin: 8px 0;
     box-sizing: border-box;
-    border: 3px solid black;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
 </style>
 </head>
-
-
-
    <body>
+     <center>
+       <h1> Delete Details </h1><br />
       <?php
          if(isset($_POST['delete'])) {
             $dbhost = 'localhost';
@@ -74,32 +74,17 @@ input[type=text] {
 			echo mysqli_query($conn, $sql);
          }
             ?>
-
-		<pre>
                <form method = "post" action = "<?php $_PHP_SELF ?>">
-
-
-
-
-
-
-
-
-
-
-
-								Employee-id:<input name = "emp_id" type = "text"
-                                                                 id = "emp_id">
-
-								                <input name = "delete" type = "submit"
-                                          id = "delete" value = "Delete"> </pre>
-
-         <!--    			                                 <button class= "button button1" type="submit" name="delete"
-                        				      id = "delete" value = "Delete">  -->
-
-                  </table>
+								<b>Employee-id:</b> <input name = "emp_id" type = "text" id = "emp_id"> <br />
+                <input name = "delete" type = "submit" class="button button1" id = "delete" value = "Delete">
                </form>
-
-
+               <table>
+                 <tr>
+                   <td>
+                     <a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
+                   </td>
+                 </tr>
+               </table>
+             </center>
    </body>
 </html>

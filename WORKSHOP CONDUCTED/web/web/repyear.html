@@ -1,6 +1,11 @@
 <html>
 <head>
 <style>
+body{
+			background-image:url(download.jpeg);
+			background-repeat:no-repeat;
+			background-size:cover;
+		}
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -15,20 +20,13 @@
     transition-duration: 0.4s;
     cursor: pointer;
 }
-body{
-			background-image:url(download.jpeg);
-			background-repeat:no-repeat;
-			background-size:cover;
-		}
-		
 .button1 {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 5px solid black;
     border-radius:12px;
-    
-}
 
+}
 .button1:hover {
     background-color: black;
     color:white;
@@ -51,7 +49,6 @@ input[type=text] {
     box-sizing: border-box;
     border: 3px solid black;
     border-radius: 5px;
-    
 }
 </style>
 </head>
@@ -68,10 +65,23 @@ input[type=text] {
 <br/>
 <center>
 <form action="repyear.php" method="post">
-     <e>YEAR : <e>     <input type="text" align="middle" name="year" placeholder="Enter the year" /><br/>
+     <e>YEAR : <e>     <input type="text" align="middle" name="year" required placeholder="Enter the year" /><br/>
 <br/>
      <button class="button button1">REPORT</button>
 </form>
+</center>
+<center>
+<table>
+  <tr>
+    <td>
+      <a href="rep.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></button></a>
+    </td>
+    <td style="visibility: hidden"> empty</td>
+    <td>
+      <a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
+    </td>
+  </tr>
+</table>
 </center>
 </body>
 </html>
