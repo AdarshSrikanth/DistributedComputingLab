@@ -5,8 +5,14 @@
 
 	$con=mysqli_connect($dbhost,$dbuser,$dbpass,'staff_details');
 	$eid=$_POST['eid'];
+	$sql = 'SELECT eid FROM staff WHERE eid = "'.$eid.'"';
+	$res = mysqli_query($con, $sql);
+	$res = mysqli_fetch_array($res);
+	if($res['eid']!=$eid){
+		header('location: e.html?error=true');
+	}
 	$query1="SELECT ename from programs_attended where eid='$eid'";
-    $result1=$con->query($query1);
+    $result1=mysqli_query($con, $query1);
     if(!$result1)
     {
 	echo 'could not run query: '.mysql_error();

@@ -25,11 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `programs_attended`
+-- Table structure for table `programs_conducted`
 --
 
-CREATE TABLE `programs_attended` (
-  `eid` varchar(10) NOT NULL,
+CREATE TABLE `programs_conducted` (
+  `eid` varchar(10) NOT NULL REFERENCES staff(`eid`),
   `ename` varchar(50) NOT NULL,
   `natureofprogram` varchar(255) NOT NULL,
   `nameofworkshop` varchar(50) NOT NULL,
@@ -43,10 +43,10 @@ CREATE TABLE `programs_attended` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `programs_attended`
+-- Dumping data for table `programs_conducted`
 --
 
-INSERT INTO `programs_attended` (`eid`, `ename`, `natureofprogram`, `nameofworkshop`, `duration`, `fromdate`, `todate`, `venue`, `noofparticipants`, `sponsoringagencies`, `Resourceperson`) VALUES
+INSERT INTO `programs_conducted` (`eid`, `ename`, `natureofprogram`, `nameofworkshop`, `duration`, `fromdate`, `todate`, `venue`, `noofparticipants`, `sponsoringagencies`, `Resourceperson`) VALUES
 ('C6188', 'Dr.R.manimegalai', 'Technicalseminar', 'Cybersecuity', 'oneday', '2017-09-27', '2017-09-27', 'Coimbatore', 40, 'Cisco', 'Mr.Visakaraman');
 COMMIT;
 

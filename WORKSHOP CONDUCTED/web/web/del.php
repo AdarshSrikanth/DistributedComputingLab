@@ -1,5 +1,5 @@
 <html>
-   
+
    <head>
       <title>Delete a Record from MySQL Database</title>
 <style>
@@ -23,13 +23,16 @@ body{
 			background-repeat:no-repeat;
 			background-size:cover;
 		}
+    a{
+      text-decoration: none;
+    }
 .p
 {
 	font-size:200px;
 }
 .button1 {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 4px solid black;
 }
 
@@ -51,8 +54,8 @@ input[type=text] {
 </style>
 </head>
 
-  
-   
+
+
    <body>
       <?php
          if(isset($_POST['delete'])) {
@@ -64,17 +67,16 @@ input[type=text] {
 			if(!$conn){
 				echo "Conn error";
 			}
-           				
+
             $emp_id = $_POST['emp_id'];
-            
-            $sql = "DELETE FROM programs_attended WHERE eid = $emp_id" ;
+
+            $sql = "DELETE FROM programs_conducted WHERE eid = $emp_id" ;
 			echo mysqli_query($conn, $sql);
          }
             ?>
 
 		<pre>
                <form method = "post" action = "<?php $_PHP_SELF ?>">
-                  
 
 
 
@@ -84,19 +86,20 @@ input[type=text] {
 
 
 
-                                                                   
-								Employee-id:<input name = "emp_id" type = "text" 
+
+
+								Employee-id:<input name = "emp_id" type = "text"
                                                                  id = "emp_id">
-								
-								                <input name = "delete" type = "submit" 
+
+								                <input name = "delete" type = "submit"
                                           id = "delete" value = "Delete"> </pre>
-         
+
          <!--    			                                 <button class= "button button1" type="submit" name="delete"
                         				      id = "delete" value = "Delete">  -->
-                     
+
                   </table>
                </form>
-           
-      
+
+
    </body>
 </html>

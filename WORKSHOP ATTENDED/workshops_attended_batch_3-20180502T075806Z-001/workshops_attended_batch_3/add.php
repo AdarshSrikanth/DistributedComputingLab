@@ -55,12 +55,42 @@ function myfunc()
 {
 	alert("Check your informataion before clicking SUBMIT button");
 	}
+	var xmlHttp = new XMLHttpRequest();
+	function getName(eid) {
+		if(xmlHttp.readyState == 4 || xmlHttp.readyState == 0){
+			//alert(eid);
+	   xmlHttp.open("GET", "getname.php?eid="+eid, true);
+	   xmlHttp.onreadystatechange = handleResponse;
+	   xmlHttp.send(null);
+		 //alert('Sent');
+	   }else{
+	   }
+	}
+	function handleResponse(){
+		//alert('Response');
+   if(xmlHttp.readyState == 4 || xmlHttp.readyState == 0){
+   if(xmlHttp.status == 200){
+    var xmlResponse = xmlHttp.responseText;
+		//alert('Text: '+xmlResponse);
+    if(xmlResponse == 'Error'){
+			document.getElementById('name-block').value = '';
+			document.getElementById('error-block').innerHTML = 'No such ID exists';
+		}
+		else{
+			document.getElementById('error-block').innerHTML = '';
+			document.getElementById('name-block').value = xmlResponse;
+		}
+   }else{
+    alert("something went wrong");
+   }
+   }
+ }
 </script>
 
 <form name="f" method="post" action="get.php" enctype="multipart/form-data">
 <pre>
 <b>EID  </b>                                            :<input type="text" name="eid" required><br>
-<b>ENAME </b>                                     :<input type="text" name="ename" required><br>
+<b>ENAME </b>                                     :<input type="text" name="ename" required readonly id="name-block" value="" onfocus="getName(document.f.eid.value)"><span id="error-block" style="color: red"></span><br>
 <b>PROGRAM NATURE      </b>        :<input type="radio" name="natureofprogram" value="workshop">Workshop
 		                                      <input type="radio" name="natureofprogram" value="FDP">FDP
 		                                      <input type="radio" name="natureofprogram" value="seminar">Seminar

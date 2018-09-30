@@ -19,20 +19,24 @@ $dbhost = "localhost";
 		echo "Welcome ";
 		echo "<b>";
 		echo $ename;
-		
+
 		echo "<br/>";
 		echo "</b>";
-		echo "Your Data has been successfully registered !";
 		$sql = "INSERT INTO programs_attended(eid, ename, natureofprogram, title,duration,fromdate,todate,organised,imagetmp,imagename) VALUES('$eid', '$ename', '$natureofprogram', '$title', '$duration','$fromdate','$todate','$organised','$imagetmp','$imagename')";
-		echo mysqli_query($conn, $sql);
-		mysql_query($sql);
-	
+		if(mysqli_query($conn, $sql)){
+			echo "Your Data has been successfully registered !";
+		}
+		else{
+			echo "<font color='red'><center> No such ID exists </center></font>";
+		}
+
+
 	}
 	?>
 	<html>
 	<head>
 	</head>
-	
+
 	<body background="images/img8.jpg">
 	</body>
 	</html>

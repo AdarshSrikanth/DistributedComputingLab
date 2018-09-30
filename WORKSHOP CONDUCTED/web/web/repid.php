@@ -24,7 +24,7 @@ function Header()
     // Line break
     $this->Ln(10);
 }
- 
+
 // Page footer
 function Footer()
 {
@@ -36,7 +36,7 @@ function Footer()
     $this->Cell(0,5,'Page '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
- 
+
 //$db = new dbObj();
 //$connString =  $db->getConnstring();
 //$pdf->Cell(0,6,"PSG COLLEGE OF TECHNOLOGY",0,1,"C"); //width,height,content,border,line,align
@@ -45,10 +45,10 @@ function Footer()
 //$pdf->SetFont('Arial','',10);
 //$pdf->Cell(0,6,"Staff Workshop Details",0,1,"C");
 $display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop','nameofworkshop'=> 'Workshop','duration'=> 'Duration','fromdate'=>'FromDate','todate'=>'ToDate','venue'=>'Venue');
- 
-$result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue FROM programs_attended WHERE eid='$eid'") or die("database error:". mysqli_error($conn));
-$header = mysqli_query($conn, "SHOW columns FROM programs_attended");
- 
+
+$result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue FROM programs_conducted WHERE eid='$eid'") or die("database error:". mysqli_error($conn));
+$header = mysqli_query($conn, "SHOW columns FROM programs_conducted");
+
 $pdf = new FPDF();
 //header
 $pdf->AddPage();
@@ -56,7 +56,7 @@ $pdf->AddPage();
 $pdf->AliasNbPages();
 $pdf->SetFont('Arial','B',12);
 foreach($header as $heading) {
-	
+
 $pdf->Cell(25,12,$display_heading[$heading['Field']],1);
 }
 foreach($result as $row) {

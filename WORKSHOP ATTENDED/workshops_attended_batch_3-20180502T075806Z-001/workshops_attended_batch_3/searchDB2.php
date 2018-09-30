@@ -2,13 +2,13 @@
 //include the database configuration file
 
  $host = "localhost";
- 
+
  $user = "root";
- 
+
  $password = "";
- 
+
  $db = "staff_details";
- 
+
  $conn = mysqli_connect($host, $user, $password, $db);
  if(mysqli_connect_errno()){
   echo "Connection error : ". mysqli_connect_error();
@@ -24,7 +24,7 @@
 
   $sql = "SELECT title FROM programs_attended WHERE title LIKE '%".$value."%';";
   if($result = mysqli_query($conn, $sql)){
-   if(mysqli_num_rows($result) > 0){ 
+   if(mysqli_num_rows($result) > 0){
 //Store the result in an array list[]
 
      while($row = mysqli_fetch_array($result)){
@@ -36,7 +36,7 @@
     $list[] = "";
    }
   }
- 
+
   if(!empty($value)){
    if($matched = preg_grep('~'.$value.'~', $list)){
    $count = 0;
@@ -60,8 +60,7 @@ link the real target search file which should be opened when we click the search
     }
    echo '</ul>';
    }else{
-    echo "No result";
-    
+    echo "<font color='red' style='font-size: 20px'><b><<< No such Workshop exists >>></b></font>";    
    }
   }
 ?>

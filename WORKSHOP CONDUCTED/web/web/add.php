@@ -22,7 +22,7 @@
 		//sql_part
 //		echo $eid;
 //		echo $ename;
-		$sql = "INSERT INTO programs_attended(eid, ename, natureofprogram, nameofworkshop , duration,fromdate,todate,venue,noofparticipants,sponsoringagencies,Resourceperson) VALUES('$eid', '$ename', '$natureofprogram', '$nameofworkshop', '$duration','$fromdate','$todate','$venue','$noofparticipants','$sponsoringagencies','$Resourceperson')";
+		$sql = "INSERT INTO programs_conducted(eid, ename, natureofprogram, nameofworkshop , duration,fromdate,todate,venue,noofparticipants,sponsoringagencies,Resourceperson) VALUES('$eid', '$ename', '$natureofprogram', '$nameofworkshop', '$duration','$fromdate','$todate','$venue','$noofparticipants','$sponsoringagencies','$Resourceperson')";
 		echo mysqli_query($conn, $sql);
 	}
 ?>
@@ -54,8 +54,8 @@ body{
 }
 
 .button1 {
-    background-color: white; 
-    color: black; 
+    background-color: white;
+    color: black;
     border: 4px solid black;
 }
 
@@ -89,6 +89,9 @@ input[type=date] {
     border: 3px solid black;
     border-radius: 5px;
 }
+a{
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -115,7 +118,7 @@ input[type=date] {
                           <input type="radio" name="duration" value="FDP"/><t>Two days</t><br/>
 		                 <input type="radio" name="duration" value="seminar"/><t>Less than a week</t><br/>
 			                  <input type="radio" name="duration" value="onecreditcourse"/><t>One week</t><br/></br>
-		                 
+
 <b>DATE</b>                  : from<input type="date" name="fromdate" required> to<input type="date" name="todate" required></br>
 <b>NUMBER OF PARTICIPANTS</b>:<input type="text" name="part" pattern="[0-9]+"/><br/>
 <b>SPONSORING AGENCIES</b>   :<input type="text" name="organised" required pattern="[a-z A-Z]+"/><br/>
@@ -130,13 +133,3 @@ input[type=date] {
 </center>
 </body>
 </html>
-
-
-
-
-
-
-
-		
-		
-		

@@ -55,7 +55,7 @@ include "connect.php";
               <li>Areas of Interest:&nbsp;$row[7]</li>
               <li>Experience:&nbsp;$row[8]</li>
               </ul>
-              <input type='submit' name='del' class='btn center' value='$row[0]'>
+              <input type='submit' name='del' class='btn red center' value='$row[0]'>
             </div>
           </div>
         </div>
