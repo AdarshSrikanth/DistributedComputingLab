@@ -1,5 +1,6 @@
 K.R.Chandran;National;Outstanding Engineer;2016
 V.Ilayaraja;National;Tech-Novator;2016
+K.R.Chandran;National;SITRA;2000
 K.R.Chandran;National;Outstanding Engineer;2016
 V.Ilayaraja;National;Tech-Novator;2016
-V.Ilayaraja;National;Tech-Novator;2016
+K.R.Chandran;National;SITRA;2000

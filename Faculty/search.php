@@ -64,7 +64,6 @@
     </nav>
     <br><br>
     <h4 class="center" id="title">Search Faculty</h4>
-
     <br><br>
     <?php
      if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -127,22 +126,23 @@
        }
        else
        {
+       
        ?>
       <form class="center container" name="search_form" method="post">
         <div class="row ">
           <div class="input-field col s8 col offset-l2 ">
             <select id="id" name="eid">
               <label for="id">ID</label>
-              <option value="" disabled selected>Enter ID</option>
+              <option value="" disabled selected>Select ID</option>
               <?php
-                $sql = "SELECT EID,name FROM staff ORDER BY EID";
-                $res = mysqli_query($conn, $sql);
+                $sql = 'SELECT * FROM staff';
+                $res = $conn->query($sql);            
                 while($row = mysqli_fetch_array($res))
                 {
-                  $val = $row['EID'];
-                  $name = $row['name'];
+                  $val = $row[0];
+                  $name = $row[1];
                   echo "<option value='$val'> $val - $name </option>";
-              }
+                }
              ?>
             </select>
           </div>

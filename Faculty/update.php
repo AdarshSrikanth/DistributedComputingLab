@@ -72,7 +72,7 @@
               <label for="id">ID</label>
               <option value="" disabled selected>Enter ID</option>
               <?php
-                $sql = "SELECT EID,name FROM staff ORDER BY EID";
+                $sql = "SELECT EID, name FROM staff ORDER BY EID";
                 $res = mysqli_query($conn, $sql);
                 while($row = mysqli_fetch_array($res))
                 {
