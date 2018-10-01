@@ -43,7 +43,9 @@ $display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop
 
 $result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,duration,noofparticipants,fromdate,todate,venue FROM programs_conducted WHERE natureofprogram='$nop'") or die("database error:". mysqli_error($conn));
 $header = mysqli_query($conn, "SHOW columns FROM programs_conducted");
-
+if(!mysqli_fetch_array($result)){
+	header('location: repnop.html?error=true');
+}
 $pdf = new FPDF();
 //header
 $pdf->AddPage();
@@ -51,7 +53,6 @@ $pdf->AddPage();
 $pdf->AliasNbPages();
 $pdf->SetFont('Arial','B',12);
 foreach($header as $heading) {
-
 $pdf->Cell(25,12,$display_heading[$heading['Field']],1);
 }
 foreach($result as $row) {
@@ -60,5 +61,4 @@ foreach($row as $column)
 $pdf->Cell(25,12,$column,1);
 }
 $pdf->Output();
-
 ?>

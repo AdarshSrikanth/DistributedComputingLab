@@ -44,7 +44,9 @@ $display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop
 
 $result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue FROM programs_conducted WHERE YEAR(fromdate)='$year'") or die("database error:". mysqli_error($connString));
 $header = mysqli_query($conn, "SHOW columns FROM programs_conducted");
-
+if(!mysqli_fetch_array($result)){
+	header('location: repyear.html?error=true');
+}
 $pdf = new FPDF();
 //header
 $pdf->AddPage();

@@ -49,19 +49,19 @@ $display_heading = array('eid'=>'ID', 'ename'=> 'Name', 'natureofprogram'=> 'nop
 $result = mysqli_query($conn, "SELECT eid,ename,natureofprogram,nameofworkshop,duration,fromdate,todate,venue,noofparticipants,sponsoringagencies,Resourceperson FROM programs_conducted WHERE eid='$eid'") or die("database error:". mysqli_error($conn));
 $header = mysqli_query($conn, "SHOW columns FROM programs_conducted");
 $res = mysqli_fetch_array($result);
+if(!$res){
+	header('location: repid.html?error=true');
+	}
 $pdf = new FPDF('L');
 //header
 $pdf->AddPage();
 //foter page
 $pdf->AliasNbPages();
 $pdf->SetFont('Arial','B',12);
-$i=0;
 foreach($header as $heading) {
-$i++;
 $pdf->Cell(25, 12, $display_heading[$heading['Field']],1);
 }
 $pdf->Ln();
-$pdf->Cell(25, 12, $i);
 foreach($result as $row) {
 $pdf->Ln();
 foreach($row as $column)

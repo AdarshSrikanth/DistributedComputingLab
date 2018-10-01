@@ -51,6 +51,8 @@ input[type=text] {
     border-radius: 5px;
 }
 </style>
+<script src="msgflow.js">
+</script>
 </head>
 <body>
 <br/>
@@ -65,10 +67,20 @@ input[type=text] {
 <br/>
 <center>
 <form action="repyear.php" method="post">
-     <e>YEAR : <e>     <input type="text" align="middle" name="year" required placeholder="Enter the year" /><br/>
+     <e>YEAR : <e>     <input type="text" align="middle" name="year" required placeholder="Enter the year" pattern="\d{4}" title="Enter year in YYYY format"/><br/>
 <br/>
-     <button class="button button1">REPORT</button>
+     <button class="button button1">REPORT</button><br />
 </form>
+<span id="error-block" style="color: red; font-size: 20px; font-weight: bold"></span>
+<script>
+let err = get('error');
+if(err == 'true') {
+	document.getElementById('error-block').textContent = 'No such data available';
+}
+else{
+	document.getElementById('error-block').textContent = '';
+}
+</script>
 </center>
 <center>
 <table>

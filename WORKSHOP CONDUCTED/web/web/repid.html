@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <style>
     .button {
@@ -30,7 +29,6 @@ body{
 
 
 }
-
 .button1:hover {
     background-color: black;
     color:white;
@@ -66,8 +64,9 @@ input[type=text] {
     border-radius: 5px;
 }
 </style>
+<script src="msgflow.js">
+</script>
 </head>
-
 <body>
   <br />
   <br />
@@ -86,6 +85,16 @@ input[type=text] {
       <br />
       <button class="button button1">REPORT </button>
     </form>
+    <span id="error-block" style="color: red; font-size: 20px; font-weight: bold"></span>
+    <script>
+      let err = get('error');
+      if(err == 'true') {
+        document.getElementById('error-block').textContent = 'No such ID exists';
+      }
+      else{
+        document.getElementById('error-block').textContent = '';
+      }
+    </script>
     <div style="width: 20%">
       <div class="add">
         <form action="rep.html">

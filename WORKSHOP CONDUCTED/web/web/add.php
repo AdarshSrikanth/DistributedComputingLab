@@ -128,12 +128,12 @@ function handleResponse(){
 <b>EID</b>     : <input type="text" name="eid" required> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>ENAME</b>   : <input type="text" id="name-block" name="ename" required pattern="[a-z A-Z]+" readonly onfocus="getName(document.f.eid.value)">  <span id="error-block" style="color: red"></span><br><br>
 
 <b>NATURE OF WORKSHOP</b>     : <br />
-			              <input type="radio" name="natureofprogram" value="workshop" required/>Guest Lecture <br />
-                          <input type="radio" name="natureofprogram" value="FDP"/>Faculty Development Program <br />
-		                 <input type="radio" name="natureofprogram" value="seminar"/>Research Seminar <br />
-			                  <input type="radio" name="natureofprogram" value="onecreditcourse">Staff Development Program <br />
-		                  <input type="radio" name="natureofprogram" value="national">Technical Seminar <br />
-		                  <input type="radio" name="natureofprogram" value="international">One Credit Course
+			              <input type="radio" name="natureofprogram" value="Guest Lecture"  required/>Guest Lecture <br />
+                          <input type="radio" name="natureofprogram" value="Faculty Development Program"/>Faculty Development Program <br />
+		                 <input type="radio" name="natureofprogram" value="Research Seminar "/>Research Seminar <br />
+			                  <input type="radio" name="natureofprogram" value="Staff Development Program">Staff Development Program <br />
+		                  <input type="radio" name="natureofprogram" value="Technical Seminar ">Technical Seminar <br />
+		                  <input type="radio" name="natureofprogram" value="One Credit Course">One Credit Course
 	<br/><br>
 <b>NAME OF THE WORKSHOP</b>  : <input type="text" name="workshop" required/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>RESOURCE PERSON</b>       : <input type="text" name="resource" required/><br/></br>
 <b>DURATION  </b>            : <br/>

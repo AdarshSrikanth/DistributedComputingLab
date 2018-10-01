@@ -56,8 +56,8 @@ input[type=text] {
 
 }
 </style>
+<script src="msgflow.js" charset="utf-8"></script>
 </head>
-
 <body>
 <br/>
 <br/>
@@ -71,11 +71,29 @@ input[type=text] {
 <br/>
 <center>
 <form action="repnop.php" method="post">
-<e>NATURE OF PROGRAM : </e>	<input type="text" name="nop" placeholder="Enter the program" />
+<e>NATURE OF PROGRAM : </e>
+<select name="nop">
+<option value="Guest Lecture">Guest Lecture</option>
+<option value="Faculty Development Program">Faculty Development Program</option>
+<option value="Research Seminar">Research Seminar</option>
+<option value="Staff Development Program">Staff Development Program</option>
+<option value="Technical Seminar">Technical Seminar</option>
+<option value="One Credit Course">One Credit Course</option>
+</select>
 <br/>
 <br/>
 <button class="button button1">REPORT</button>
 </form>
+<span id="error-block" style="color: red; font-size: 20px; font-weight: bold"></span>
+<script>
+  let err = get('error');
+  if(err == 'true') {
+    document.getElementById('error-block').textContent = 'No such data available';
+  }
+  else{
+    document.getElementById('error-block').textContent = '';
+  }
+</script>
 <table>
   <tr>
     <td>

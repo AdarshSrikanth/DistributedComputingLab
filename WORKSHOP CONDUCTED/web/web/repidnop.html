@@ -76,8 +76,9 @@ input[type=text] {
     border-radius: 5px;
 
 }
-
 </style>
+<script src="msgflow.js">
+</script>
 </head>
 
 <body>
@@ -104,6 +105,16 @@ input[type=text] {
 <br/>
 <button class="button button1">REPORT</button>
 </form>
+<span id="error-block" style="color: red; font-size: 20px; font-weight: bold"></span>
+<script>
+  let err = get('error');
+  if(err == 'true') {
+    document.getElementById('error-block').textContent = 'No such ID exists';
+  }
+  else{
+    document.getElementById('error-block').textContent = '';
+  }
+</script>
 <table>
   <tr>
     <td>
