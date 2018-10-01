@@ -11,7 +11,7 @@
 	.button {
 		width:150px;
 		border-radius: 4px;
-		background-color:red;
+		background-color:#dd5555;
 		border: none;
 		color: #FFFFFF;
 		text-align: center;
@@ -24,7 +24,8 @@
 	}
 	.button:hover
 	{
-		box-shadow: 3px 3px tomato;
+		box-shadow: 3px 3px black;
+		width: 170px;
 	}
 
 	.button span {
@@ -64,7 +65,7 @@
 <body>
 	<center><h1>Funded Projects</h1></center>
 	<hr>
-	<a href="index.php"> <button type="button" name="submit" style="float:left;"><span>Go Back</span></button></a>
+	<a href="index.php"> <button class="button" type="button" name="submit" style="float:left;"><span>Go Back</span></button></a>
 	<div class="container">
 		<form method="post" action="store.php">
 			<div class="row">
