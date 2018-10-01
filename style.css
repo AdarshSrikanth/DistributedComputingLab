@@ -1,0 +1,10 @@
+nav{
+    display:block;
+    width:100%;
+    color:white;
+    background-color:cornflowerblue;
+    height: 5%;
+    text-align: center;
+    font-size: 2em;
+    padding:none;
+}

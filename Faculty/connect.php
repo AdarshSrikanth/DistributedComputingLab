@@ -1,8 +1,8 @@
 <?php
-$dbhost = "localhost";
+$dbhost = "127.0.0.1";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "Staff_Details";
+$dbname = "staff_details";
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
 if (!$conn) {
