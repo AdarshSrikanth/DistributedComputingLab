@@ -106,13 +106,18 @@ function myfunc()
 <center><button type="submit" name="add" onClick="myfunc()">SUBMIT</button> &nbsp; &nbsp;&nbsp; <button type="button" name="clear">CLEAR</button></center>
 </pre>
 </form>
-<div class="add" style="float: left">
-<form action="index.html">
-<center><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></center>
-</form>
-</div>
-<!--<div class="add">
-<a href="index.html">Home</a>
-</div>-->
+<center>
+<table>
+  <tr>
+    <td>
+      <a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></button></a>
+    </td>
+    <td style="visibility: hidden"> empty</td>
+    <td>
+      <a href="../index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
+    </td>
+  </tr>
+</table>
+</center>
 </body>
 </html>

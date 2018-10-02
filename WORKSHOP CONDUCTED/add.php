@@ -148,9 +148,9 @@ function handleResponse(){
 
 <a href="ce\uploadce1.html"><button class="button button1" type="button" name="up" style="font-size: 10px; border-width: 2px"><b>UPLOAD BROCHURE</b></button></a><br/>
       <button class="button button1" type="submit" name="add">ADD</button>
-			<a href="index.html"><button type="button" style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
+			<a href="index.html"><button type="button" style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></button></a>
+			<a href="../index.html"><button type="button" style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
      <button class="button button1" type="button" name="clear">CLEAR</button>
-
 </form>
 </center>
 </body>

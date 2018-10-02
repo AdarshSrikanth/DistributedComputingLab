@@ -17,7 +17,7 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
        <script type="text/javascript" language="javascript">
 
               </script>
-			 
+
     <style type="text/css">
         .maindiv {
             background-color: #ebcdcd;
@@ -30,7 +30,7 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
             background-image: url(../Images/accounts.jpg);
             background-size: cover;
         }
-    
+
         body {
             font-family: Verdana, Arial, Helvetica, sans-serif;
             font-size: 16px;
@@ -79,7 +79,7 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
             border: solid #0D4F8B 10px;
             border-bottom: solid #0D4F8B 10px;
         }
-     
+
 
         #content {
             float: left;
@@ -109,7 +109,7 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
             margin-top: 5px;
             padding: 3px;
             border-radius: 4px;
-           
+
         }
 
             .txtmar:hover {
@@ -141,10 +141,10 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
         #btnLogin {
             font-family: arial;
             text-decoration: none;
-           
+
             font-size: 12px;
             font-weight: bold;
-            
+
             /*text-shadow: 1px 1px 0px #7CACDE;*/
             /*box-shadow: 2px 4px 2px #78B8F9;*/
             padding: 5px;
@@ -262,35 +262,35 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
                     </div>
 
                     <div id="headerright">
-                       
+
                     </div>
 
                 </div>
                 <div id="navigation">
                     <marquee id="marquee_head" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();">Welcome to Department of Information Technology!</marquee>
                 </div>
-                              
+
           
             <div id="templatemo_menu_wrapper">
-                
-        	       
+
+
         </div>
-       
+
         <div id="content">
             	<div id="wowslider-container1" style="width: 653px; height:400px;float:left;">
 	<div >
         <ul>
-            
-            
-            <center>   
+
+
+            <center>
 			<form action="" method="post">
                 <span id="lblnamlog" style="color:Yellow;font-size:Medium;font-weight:bold;text-decoration:underline;">Training Requisition</span><br /><br />
                                 &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp
                                 <span id="Lblrol" class="aspNetDisabled" style="color:White;font-size:Medium;font-weight:bold;">Faculty code</span> &nbsp; &nbsp;&nbsp;&nbsp
-                                 <input name="fc" type="text" id="Txtstudid" class="txtmar" /> 
-                 <span id="txtstud" style="color:White;visibility:hidden;">* Enter Login Id</span> 
+                                 <input name="fc" type="text" id="Txtstudid" class="txtmar" />
+                 <span id="txtstud" style="color:White;visibility:hidden;">* Enter Login Id</span>
             <br />
-            <br /> 
+            <br />
       <span id="Lblpas" style="color:White;font-size:Medium;font-weight:bold;">Program Title</span> &nbsp;&nbsp;&nbsp
             <input name="prog" type="text" id="TxtPasswd" class="txtmar" />
                 <br />
@@ -300,7 +300,7 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
 		<input type="radio" value="even" name="sem"/><span id="Lblpas" style="color:White;font-size:Medium;font-weight:bold;">No<span>&nbsp;&nbsp;&nbsp
             <br />
             <br />
-			
+
 	 <span id="Lblpas" style="color:White;font-size:Medium;font-weight:bold;"><a href="mailto:umamaheswari@gmail.com">Send Mail</a></span>
 	 <br/> <br/>&nbsp;&nbsp;&nbsp;&nbsp;
 		             <input type="button" onclick="location.href='retrieve.php'" value="OK"/>&nbsp;&nbsp;
@@ -308,10 +308,10 @@ Upload the file:<input type="file" name="upload"/><br/><br/>
 			</form>
 
                     &nbsp;&nbsp;&nbsp;
-                 
+
                 &nbsp <br /><br />
-            </bottom> 
-                
+            </bottom>
+
       </ul>
 </div>
 </body>

@@ -53,6 +53,8 @@ input[type=text] {
 }
 
 </style>
+<script src="msgflow.js">
+</script>
 </head>
    <body>
      <center>
@@ -69,19 +71,36 @@ input[type=text] {
 			}
 
             $emp_id = $_POST['emp_id'];
-
+            $sql = "SELECT eid FROM programs_conducted WHERE eid = '$emp_id'";
+            if(mysql_num_rows(mysqli_query($conn, $sql)) < 1) {
+              header('location: del.php?error=true');
+            }
             $sql = "DELETE FROM programs_conducted WHERE eid = $emp_id" ;
-			echo mysqli_query($conn, $sql);
+			      echo mysqli_query($conn, $sql);
          }
             ?>
                <form method = "post" action = "<?php $_PHP_SELF ?>">
 								<b>Employee-id:</b> <input name = "emp_id" type = "text" id = "emp_id"> <br />
                 <input name = "delete" type = "submit" class="button button1" id = "delete" value = "Delete">
                </form>
+               <span id="error-block" style="color: red; font-size: 20px; font-weight: bold"></span>
+               <script>
+                 let err = get('error');
+                 if(err == 'true') {
+                   document.getElementById('error-block').textContent = 'No such ID exists';
+                 }
+                 else{
+                   document.getElementById('error-block').textContent = '';
+                 }
+               </script>
                <table>
                  <tr>
                    <td>
-                     <a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
+                     <a href="index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/back.png" style="width: 100%"/></button></a>
+                   </td>
+                   <td style="visibility: hidden"> empty</td>
+                   <td>
+                     <a href="../index.html"><button style="border-radius: 50px; width: 70px; height: 70px"><img src="images/home.png" style="width: 100%"/></button></a>
                    </td>
                  </tr>
                </table>

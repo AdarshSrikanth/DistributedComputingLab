@@ -21,18 +21,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `staff`
---
-
-CREATE TABLE IF NOT EXISTS `staffs` (
-  `sid` varchar(10) NOT NULL,
-  `sname` varchar(30) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  PRIMARY KEY (`sid`),
-  KEY `sid` (`sid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
 -- Dumping data for table `staff`
 --
 

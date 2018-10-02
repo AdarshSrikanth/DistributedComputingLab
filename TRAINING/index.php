@@ -239,24 +239,8 @@
 <?php
 if(isset($_POST["submit"]))
 {
-
 $id=$_POST["id"];
 $pass=$_POST["pass"];
-
-if(empty($id))
- {
-   echo "<script> alert('ID is required');</script>";
- }
- else if(!preg_match("/^[A-Z][0-9]{4}$/",$id))
- {
-   echo "<script> alert('Invalid user id');</script>";
- }
-  if(empty($pass))
- {
-   echo "<script> alert('password is required');</script>";
- }
-if(!empty($id) && preg_match("/^[A-Z][0-9]{4}$/",$id) && !empty($pass))
-	{
 $hostname="localhost";
 $conn=mysql_connect($hostname,"root",'');
 if(!$conn)
@@ -264,7 +248,7 @@ if(!$conn)
   echo "<script> alert('could not connect');</script>";
 }
 $selected=mysql_select_db("staff_details",$conn);
-$result=mysql_query("select sid from staffs where sid='$id' and password='$pass'",$conn);
+$result=mysql_query("select eid from staff where eid='$id' and password='$pass'",$conn);
 $count=mysql_num_rows($result);
 // If result matched $username and $password, table row must be 1 row
 if($count==1){
@@ -272,10 +256,10 @@ if($count==1){
 }
 else
 {
-	echo "<script> alert('unsuccessful');</script>";
+	echo "<script> alert('Invalid Login');</script>";
 }
  }
-}
+ unset($_POST['submit']);
 ?>
 </head>
 <body>
@@ -316,12 +300,12 @@ else
                 <span id="lblnamlog" style="color:Yellow;font-size:Medium;font-weight:bold;text-decoration:underline;">Faculty Login</span><br /><br />
                                &nbsp;&nbsp;&nbsp;
                                 <span id="Lblrol" class="aspNetDisabled" style="color:White;font-size:Medium;font-weight:bold;">Staff id</span>
-                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input name="id" type="text" id="Txtstudid" class="txtmar" />
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<input pattern="^[A-Z]\d{4}$" title="Invalid ID format" name="id" type="text" id="Txtstudid" required class="txtmar" />
                  <span id="txtstud" style="color:White;visibility:hidden;">* Enter Login Id</span>
             <br />
             <br />
         <span id="Lblpas" style="color:White;font-size:Medium;font-weight:bold;">Password</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input name="pass" type="password" id="TxtPasswd" title="Enter Your Students.Psgtech  Password" class="txtmar" />
+            <input name="pass" type="password" id="TxtPasswd" title="Enter Your Students.Psgtech  Password" required class="txtmar" />
                <span id="txtpwd" style="color:White;visibility:hidden;">* Enter Password</span>
                 <br />
             <br />
